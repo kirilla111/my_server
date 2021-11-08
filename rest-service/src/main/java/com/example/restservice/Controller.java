@@ -1,6 +1,7 @@
 package com.example.restservice;
 
 import com.example.restservice.config.MainConfig;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import templates.FileInfo;
@@ -9,6 +10,7 @@ import templates.FileInfoRequest;
 import java.io.File;
 import java.io.IOException;
 
+@CrossOrigin(origins = "http://localhost:8091/", maxAge = 3600)
 @RestController
 public class Controller {
 

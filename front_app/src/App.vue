@@ -73,18 +73,22 @@ export default {
   },
   methods: {
     getList() {
-      return this.response[0].filesInfo;
+      //console.log(this.response.filesInfo);
+      return this.response.filesInfo;
     },
     getListInfo() {
       let vm = this;
       axios
-        .get("http://localhost:8080/files")
+        .get("http://192.168.0.118:8091/files")
+        //.get("http://localhost:8091/files")
+        //.get("https://api.openweathermap.org/data/2.5/onecall?lat=11&lon=11&exclude=minutely&appid=4398fb47bec1e4f059c85184f9291200")
         .then(function (response) {
-          vm.response = response;
+          vm.response = response.data;
+          //console.log(response.data.filesInfo);
         });
     },
   },
-  created() {
+  beforeMount() {
     this.getListInfo();
   },
 };
